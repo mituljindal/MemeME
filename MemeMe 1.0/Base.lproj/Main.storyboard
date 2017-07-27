@@ -22,17 +22,26 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hyw-n4-wkm">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="y9C-kg-iUq">
+                                <rect key="frame" x="41" y="155" width="292" height="356"/>
+                            </imageView>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="2eb-Qf-UZb" userLabel="BottonTextField">
+                                <rect key="frame" x="101" y="456" width="172" height="40"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="allCharacters"/>
+                            </textField>
+                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="redraw" semanticContentAttribute="spatial" translatesAutoresizingMaskIntoConstraints="NO" id="hyw-n4-wkm">
                                 <rect key="frame" x="0.0" y="623" width="375" height="44"/>
                                 <items>
-                                    <barButtonItem title="Pick" id="I8F-ed-qSo">
-                                        <connections>
-                                            <action selector="pickImageFromAlbum:" destination="BYZ-38-t0r" id="tni-An-tT8"/>
-                                        </connections>
-                                    </barButtonItem>
-                                    <barButtonItem title="Camera" id="bde-lx-VBU">
+                                    <barButtonItem systemItem="camera" id="bde-lx-VBU">
                                         <connections>
                                             <action selector="clickImageFromCamera:" destination="BYZ-38-t0r" id="dfk-m1-CQn"/>
+                                        </connections>
+                                    </barButtonItem>
+                                    <barButtonItem title="Photos" id="I8F-ed-qSo">
+                                        <connections>
+                                            <action selector="pickImageFromAlbum:" destination="BYZ-38-t0r" id="tni-An-tT8"/>
                                         </connections>
                                     </barButtonItem>
                                 </items>
@@ -40,24 +49,32 @@
                                     <outlet property="delegate" destination="BYZ-38-t0r" id="6DE-fS-iCK"/>
                                 </connections>
                             </toolbar>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="y9C-kg-iUq">
-                                <rect key="frame" x="67" y="213" width="240" height="240"/>
-                            </imageView>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="wkk-Z5-605" userLabel="TopTextField">
+                                <rect key="frame" x="101" y="168" width="172" height="40"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="allCharacters"/>
+                            </textField>
                         </subviews>
-                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="hyw-n4-wkm" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="-16" id="HBx-DC-SbD"/>
+                            <constraint firstItem="2eb-Qf-UZb" firstAttribute="top" secondItem="y9C-kg-iUq" secondAttribute="bottom" constant="-55" id="Hgv-yD-ezK"/>
                             <constraint firstAttribute="trailingMargin" secondItem="hyw-n4-wkm" secondAttribute="trailing" constant="-16" id="IBK-OY-4Lb"/>
+                            <constraint firstItem="y9C-kg-iUq" firstAttribute="top" secondItem="wkk-Z5-605" secondAttribute="bottom" constant="-53" id="Iq7-iV-T7Q"/>
                             <constraint firstItem="y9C-kg-iUq" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="Lhq-Ua-wle"/>
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="hyw-n4-wkm" secondAttribute="bottom" id="Zg6-2E-kFU"/>
+                            <constraint firstItem="2eb-Qf-UZb" firstAttribute="centerX" secondItem="y9C-kg-iUq" secondAttribute="centerX" id="f4U-Wj-Qdp"/>
                             <constraint firstItem="y9C-kg-iUq" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="fa6-1H-oZS"/>
-                            <constraint firstItem="y9C-kg-iUq" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="51" id="kGj-hW-7wq"/>
-                            <constraint firstItem="y9C-kg-iUq" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="193" id="sNs-IE-6O2"/>
+                            <constraint firstItem="y9C-kg-iUq" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="25" id="kGj-hW-7wq"/>
+                            <constraint firstItem="wkk-Z5-605" firstAttribute="centerX" secondItem="y9C-kg-iUq" secondAttribute="centerX" id="qJQ-qR-Vh3"/>
+                            <constraint firstItem="y9C-kg-iUq" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="135" id="sNs-IE-6O2"/>
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="bottomTextField" destination="2eb-Qf-UZb" id="O1e-tf-nPG"/>
                         <outlet property="cameraButton" destination="bde-lx-VBU" id="Owc-db-gR6"/>
                         <outlet property="imagePickerView" destination="y9C-kg-iUq" id="dZL-Vd-ASl"/>
+                        <outlet property="topTextField" destination="wkk-Z5-605" id="k7V-1z-siX"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
