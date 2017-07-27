@@ -32,6 +32,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         
         if let image = info["UIImagePickerControllerOriginalImage"] as? UIImage {
             imagePickerView.image = image
+            imagePickerView.contentMode = UIViewContentMode.scaleAspectFit
         }
         dismiss(animated: true, completion: nil)
     }
