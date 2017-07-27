@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
 
     @IBOutlet weak var imagePickerView: UIImageView!
     
@@ -22,9 +22,10 @@ class ViewController: UIViewController {
 
     @IBAction func pickImage(_ sender: Any) {
         
-        let pickerController = UIImagePickerController()
-        self.present(pickerController, animated: true, completion: nil)
+        let imagePicker = UIImagePickerController()
+        imagePicker.delegate = self
+        self.present(imagePicker, animated: true, completion: nil)
+        //imagePicker.dismiss(animated: true, completion: nil)
     }
 
 }
-
