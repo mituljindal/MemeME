@@ -13,6 +13,7 @@
 		AC02D1121F29D14F0079FACF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AC02D1111F29D14F0079FACF /* Assets.xcassets */; };
 		AC02D1151F29D14F0079FACF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AC02D1131F29D14F0079FACF /* LaunchScreen.storyboard */; };
 		AC09B53B1F2A164E002C6FB0 /* TextFieldDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC09B53A1F2A164E002C6FB0 /* TextFieldDelegate.swift */; };
+		AC09B53D1F2A61FD002C6FB0 /* MemeEditor.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC09B53C1F2A61FD002C6FB0 /* MemeEditor.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +25,7 @@
 		AC02D1141F29D14F0079FACF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		AC02D1161F29D14F0079FACF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		AC09B53A1F2A164E002C6FB0 /* TextFieldDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TextFieldDelegate.swift; sourceTree = "<group>"; };
+		AC09B53C1F2A61FD002C6FB0 /* MemeEditor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MemeEditor.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -59,6 +61,7 @@
 				AC02D10A1F29D14F0079FACF /* AppDelegate.swift */,
 				AC02D10C1F29D14F0079FACF /* MemeEditorViewController.swift */,
 				AC09B53A1F2A164E002C6FB0 /* TextFieldDelegate.swift */,
+				AC09B53C1F2A61FD002C6FB0 /* MemeEditor.swift */,
 				AC02D10E1F29D14F0079FACF /* Main.storyboard */,
 				AC02D1111F29D14F0079FACF /* Assets.xcassets */,
 				AC02D1131F29D14F0079FACF /* LaunchScreen.storyboard */,
@@ -143,6 +146,7 @@
 				AC02D10D1F29D14F0079FACF /* MemeEditorViewController.swift in Sources */,
 				AC02D10B1F29D14F0079FACF /* AppDelegate.swift in Sources */,
 				AC09B53B1F2A164E002C6FB0 /* TextFieldDelegate.swift in Sources */,
+				AC09B53D1F2A61FD002C6FB0 /* MemeEditor.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
