@@ -70,7 +70,9 @@ class ViewController: UIViewController {
     
     func keyboardWillShow(_ notification:Notification) {
         
-        view.frame.origin.y = 0 - getKeyboardHeight(notification)
+        if bottomTextField.isEditing {
+            view.frame.origin.y = 0 - getKeyboardHeight(notification)
+        }
     }
     
     func keyboardWillHide(_ notification:Notification) {
