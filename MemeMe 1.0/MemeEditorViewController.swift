@@ -99,17 +99,26 @@ class ViewController: UIViewController {
         NotificationCenter.default.removeObserver(self, name: .UIKeyboardWillHide, object: nil)
     }
     
-    func generateMemedImage() -> UIImage {
+    func hide() {
         toolbar.isHidden = true
         navbar.isHidden = true
+    }
+    
+    func show() {
+        toolbar.isHidden = false
+        navbar.isHidden = false
+    }
+    
+    func generateMemedImage() -> UIImage {
+        
+        hide()
         
         UIGraphicsBeginImageContext(self.view.frame.size)
         view.drawHierarchy(in: self.view.frame, afterScreenUpdates: true)
         let finalMeme: UIImage = UIGraphicsGetImageFromCurrentImageContext()!
         UIGraphicsEndImageContext()
         
-        toolbar.isHidden = false
-        navbar.isHidden = false
+        show()
         
         return finalMeme
     }
