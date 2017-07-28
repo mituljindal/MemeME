@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+class ViewController: UIViewController {
 
     @IBOutlet weak var imagePickerView: UIImageView!
     @IBOutlet weak var cameraButton: UIBarButtonItem!
@@ -29,35 +29,32 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         NSFontAttributeName: UIFont(name: "HelveticaNeue-CondensedBlack", size: 75)!
     ]
     
+    func setTextFieldProperties (textField: UITextField, text: String) {
+        textField.delegate = textFieldDelegate
+        textField.defaultTextAttributes = memeTextAttributes
+        textField.textAlignment = .center
+        textField.text = text
+    }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
-       // toolbar.items = [space, cameraButton, space, photoButton, space]
+        setTextFieldProperties(textField: topTextField, text: "TOP")
+        setTextFieldProperties(textField: bottomTextField, text: "BOTTOM")
         cameraButton.isEnabled = UIImagePickerController.isSourceTypeAvailable(.camera)
-        topTextField.delegate = textFieldDelegate
-        bottomTextField.delegate = textFieldDelegate
-        topTextField.defaultTextAttributes = memeTextAttributes
-        bottomTextField.defaultTextAttributes = memeTextAttributes
-        topTextField.textAlignment = .center
-        bottomTextField.textAlignment = .center
         subscribeToKeyboardNotifications()
     }
     
     override func viewWillDisappear(_ animated: Bool) {
-        
         super.viewWillDisappear(animated)
+        
         unsubscribeFromKeyboardNotifications()
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        topTextField.text = "TOP"
-        bottomTextField.text = "BOTTOM"
+        
         shareButton.isEnabled = false
-        
-        // Do any additional setup after loading the view, typically from a nib.
-        
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
@@ -69,33 +66,6 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
             }
         }
         super.touchesBegan(touches, with: event)
-    }
-
-    @IBAction func pickImageFromAlbum(_ sender: Any) {
-        
-        let imagePicker = UIImagePickerController()
-        imagePicker.delegate = self
-        imagePicker.sourceType = .photoLibrary
-        self.present(imagePicker, animated: true, completion: nil)
-    }
-    
-    @IBAction func clickImageFromCamera(_ sender: Any) {
-        
-        let imagePicker = UIImagePickerController()
-        imagePicker.delegate = self
-        imagePicker.sourceType = .camera
-        //imagePicker.allowsEditing = true
-        present(imagePicker, animated: true, completion: nil)
-    }
-    
-    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
-        
-        if let image = info[UIImagePickerControllerOriginalImage] as? UIImage {
-            shareButton.isEnabled = true
-            imagePickerView.image = image
-            imagePickerView.contentMode = UIViewContentMode.scaleAspectFit
-        }
-        dismiss(animated: true, completion: nil)
     }
     
     func keyboardWillShow(_ notification:Notification) {
@@ -150,7 +120,8 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         controller.completionWithItemsHandler = {
             (_,successful,_,_) in
             if successful {
-                UIImageWriteToSavedPhotosAlbum(meme, self, nil /* #selector(self.image(_:didFinishSavingWithError:contextInfo:)) */, nil)
+                let savedMeme = Meme(topString: self.topTextField.text!, bottomString: self.bottomTextField.text!, originalImage: self.imagePickerView.image!, finalMeme: meme)
+                UIImageWriteToSavedPhotosAlbum(savedMeme.finalMeme, self, #selector(self.image(_:didFinishSavingWithError:contextInfo:)), nil)
             }
         }
         self.present(controller, animated: true, completion: nil)
@@ -169,3 +140,35 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         }
     }
 }
+
+extension ViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+    
+    func pickImage (sourceType: UIImagePickerControllerSourceType) {
+        
+        let imagePicker = UIImagePickerController()
+        imagePicker.delegate = self
+        imagePicker.sourceType = sourceType
+        self.present(imagePicker, animated: true, completion: nil)
+    }
+    
+    @IBAction func pickImageFromAlbum(_ sender: Any) {
+        
+        pickImage(sourceType: .photoLibrary)
+    }
+    
+    @IBAction func clickImageFromCamera(_ sender: Any) {
+        
+        pickImage(sourceType: .camera)
+    }
+    
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
+        
+        if let image = info[UIImagePickerControllerOriginalImage] as? UIImage {
+            shareButton.isEnabled = true
+            imagePickerView.image = image
+            imagePickerView.contentMode = UIViewContentMode.scaleAspectFit
+        }
+        dismiss(animated: true, completion: nil)
+    }
+}
+
