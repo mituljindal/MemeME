@@ -33,7 +33,7 @@ class ViewController: UIViewController {
         textField.delegate = textFieldDelegate
         textField.defaultTextAttributes = memeTextAttributes
         textField.textAlignment = .center
-        textField.adjustsFontSizeToFitWidth = false
+        textField.adjustsFontSizeToFitWidth = true
         textField.text = text
     }
     
@@ -102,26 +102,21 @@ class ViewController: UIViewController {
         NotificationCenter.default.removeObserver(self, name: .UIKeyboardWillHide, object: nil)
     }
     
-    func hide() {
-        toolbar.isHidden = true
-        navbar.isHidden = true
-    }
-    
-    func show() {
-        toolbar.isHidden = false
-        navbar.isHidden = false
+    func configureBars(hidden: Bool) {
+        navbar.isHidden = hidden
+        toolbar.isHidden = hidden
     }
     
     func generateMemedImage() -> UIImage {
         
-        hide()
+        configureBars(hidden: true)
         
         UIGraphicsBeginImageContext(self.view.frame.size)
         view.drawHierarchy(in: self.view.frame, afterScreenUpdates: true)
         let finalMeme: UIImage = UIGraphicsGetImageFromCurrentImageContext()!
         UIGraphicsEndImageContext()
         
-        show()
+        configureBars(hidden: false)
         
         return finalMeme
     }
