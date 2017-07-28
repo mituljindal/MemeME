@@ -26,13 +26,14 @@ class ViewController: UIViewController {
         NSStrokeWidthAttributeName: -3.0,
         NSForegroundColorAttributeName: UIColor.white,
         NSStrokeColorAttributeName: UIColor.black,
-        NSFontAttributeName: UIFont(name: "HelveticaNeue-CondensedBlack", size: 75)!
+        NSFontAttributeName: UIFont(name: "HelveticaNeue-CondensedBlack", size: 40)!
     ]
     
     func setTextFieldProperties (textField: UITextField, text: String) {
         textField.delegate = textFieldDelegate
         textField.defaultTextAttributes = memeTextAttributes
         textField.textAlignment = .center
+        textField.adjustsFontSizeToFitWidth = false
         textField.text = text
     }
     
@@ -71,13 +72,15 @@ class ViewController: UIViewController {
     func keyboardWillShow(_ notification:Notification) {
         
         if bottomTextField.isEditing {
-            view.frame.origin.y = 0 - getKeyboardHeight(notification)
+            if self.view.frame.origin.y == 0 {
+                self.view.frame.origin.y = 0 - getKeyboardHeight(notification)
+            }
         }
     }
     
     func keyboardWillHide(_ notification:Notification) {
         
-        view.frame.origin.y = 0
+        self.view.frame.origin.y = 0
     }
     
     func getKeyboardHeight(_ notification:Notification) -> CGFloat {
