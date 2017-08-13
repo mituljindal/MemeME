@@ -28,7 +28,7 @@ class ViewController: UIViewController {
         NSStrokeColorAttributeName: UIColor.black,
         NSFontAttributeName: UIFont(name: "HelveticaNeue-CondensedBlack", size: 40)!
     ]
-    
+
     func setTextFieldProperties (textField: UITextField, text: String) {
         textField.delegate = textFieldDelegate
         textField.defaultTextAttributes = memeTextAttributes
@@ -105,6 +105,12 @@ class ViewController: UIViewController {
     func configureBars(hidden: Bool) {
         navbar.isHidden = hidden
         toolbar.isHidden = hidden
+    }
+    
+    func save() {
+        let meme = Meme(topString: topTextField.text!, bottomString: bottomTextField.text!, originalImage: imagePickerView.image!, finalMeme: generateMemedImage())
+        
+        (UIApplication.shared.delegate as! AppDelegate).memes.append(meme)
     }
     
     func generateMemedImage() -> UIImage {
