@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class MemeEditorViewController: UIViewController {
 
     @IBOutlet weak var imagePickerView: UIImageView!
     @IBOutlet weak var cameraButton: UIBarButtonItem!
@@ -156,7 +156,7 @@ class ViewController: UIViewController {
     }
 }
 
-extension ViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+extension MemeEditorViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     
     func pickImage (sourceType: UIImagePickerControllerSourceType) {
         
