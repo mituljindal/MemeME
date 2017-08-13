@@ -58,6 +58,12 @@ class MemeEditorViewController: UIViewController {
         shareButton.isEnabled = false
     }
     
+    
+    @IBAction func doneButtonPressed(_ sender: Any) {
+        dismiss(animated: true, completion: nil)
+    }
+    
+    
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         if let touch = touches.first {
             if topTextField.isFirstResponder && touch.view != topTextField {
@@ -110,7 +116,8 @@ class MemeEditorViewController: UIViewController {
     func save() {
         let meme = Meme(topString: topTextField.text!, bottomString: bottomTextField.text!, originalImage: imagePickerView.image!, finalMeme: generateMemedImage())
         
-        (UIApplication.shared.delegate as! AppDelegate).memes.append(meme)
+        let appDelegate = UIApplication.shared.delegate as! AppDelegate
+        appDelegate.memes.append(meme)
     }
     
     func generateMemedImage() -> UIImage {
@@ -152,6 +159,7 @@ class MemeEditorViewController: UIViewController {
             let ac = UIAlertController(title: "Saved!", message: "Your altered image has been saved to your photos.", preferredStyle: .alert)
             ac.addAction(UIAlertAction(title: "OK", style: .default))
             present(ac, animated: true)
+            save() 
         }
     }
 }
