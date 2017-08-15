@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12121" systemVersion="17A315i" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12121" systemVersion="17A315i" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BLj-W7-lTo">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -13,7 +13,7 @@
         <!--Meme Editor View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="MemeEditorViewController" customModule="MemeMe_1_0" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="MemeEditorViewController" id="BYZ-38-t0r" customClass="MemeEditorViewController" customModule="MemeMe_1_0" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
@@ -63,6 +63,11 @@
                                         <barButtonItem key="leftBarButtonItem" systemItem="action" id="k1d-re-WLH">
                                             <connections>
                                                 <action selector="shareMeme:" destination="BYZ-38-t0r" id="qko-jk-zgv"/>
+                                            </connections>
+                                        </barButtonItem>
+                                        <barButtonItem key="rightBarButtonItem" systemItem="done" id="c3Z-n4-H6L">
+                                            <connections>
+                                                <action selector="done:" destination="BYZ-38-t0r" id="AUc-cO-MTs"/>
                                             </connections>
                                         </barButtonItem>
                                     </navigationItem>
@@ -116,7 +121,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-140" y="-1.3493253373313345"/>
+            <point key="canvasLocation" x="1750" y="351"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="eI1-9o-Eha">
@@ -128,8 +133,8 @@
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     </tabBar>
                     <connections>
-                        <segue destination="jqI-co-kIZ" kind="relationship" relationship="viewControllers" id="rZT-8K-2xn"/>
-                        <segue destination="Olu-5e-lAg" kind="relationship" relationship="viewControllers" id="73L-L1-K1Q"/>
+                        <segue destination="Olu-5e-lAg" kind="relationship" relationship="viewControllers" id="de3-i1-CIr"/>
+                        <segue destination="jqI-co-kIZ" kind="relationship" relationship="viewControllers" id="7aa-un-peW"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="HUs-bm-2Ld" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -156,7 +161,7 @@
         <!--Meme Table View Controller-->
         <scene sceneID="LGm-JX-5W6">
             <objects>
-                <viewController id="o6s-F8-RGM" customClass="MemeTableViewController" customModule="MemeMe_1_0" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="MemeTableViewController" id="o6s-F8-RGM" customClass="MemeTableViewController" customModule="MemeMe_1_0" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="vrc-3f-KNz"/>
                         <viewControllerLayoutGuide type="bottom" id="ryc-6E-6sO"/>
@@ -170,12 +175,21 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="oho-aJ-17t">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="memeTableCell" textLabel="i1I-U4-ILK" style="IBUITableViewCellStyleDefault" id="q5r-fS-4RM">
                                         <rect key="frame" x="0.0" y="28" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="oho-aJ-17t" id="Mv6-bW-iD9">
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="q5r-fS-4RM" id="LU6-88-coG">
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="i1I-U4-ILK">
+                                                    <rect key="frame" x="15" y="0.0" width="345" height="43.5"/>
+                                                    <autoresizingMask key="autoresizingMask"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                 </prototypes>
@@ -183,7 +197,13 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
-                    <navigationItem key="navigationItem" id="WNI-Pb-ZEi"/>
+                    <navigationItem key="navigationItem" id="WNI-Pb-ZEi">
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="zSg-M2-duP">
+                            <connections>
+                                <segue destination="BYZ-38-t0r" kind="presentation" id="GK6-XF-9rO"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="memesTable" destination="uOq-2H-xUj" id="UzX-2h-WyM"/>
                     </connections>
@@ -191,6 +211,41 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Qhy-BF-3aC" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="776.79999999999995" y="678.71064467766121"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="ayU-BC-cbf">
+            <objects>
+                <navigationController id="Zuz-td-j36" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="P4g-mj-NXW">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="QJU-t5-cKS" kind="relationship" relationship="rootViewController" id="4BV-lU-yrL"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Lwu-9l-yp4" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1750" y="1051"/>
+        </scene>
+        <!--Meme Detail View Controller-->
+        <scene sceneID="PFY-Um-ej5">
+            <objects>
+                <viewController storyboardIdentifier="MemeDetailViewController" id="QJU-t5-cKS" customClass="MemeDetailViewController" customModule="MemeMe_1_0" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="RPM-iw-Kbv"/>
+                        <viewControllerLayoutGuide type="bottom" id="aZd-bb-aea"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="4fu-s9-rkV">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="M1x-Q2-ld1"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="kY9-IW-HM0" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2524" y="1049.3253373313344"/>
         </scene>
         <!--Grid-->
         <scene sceneID="tzh-0j-fhY">
@@ -232,7 +287,7 @@
                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 </collectionViewFlowLayout>
                                 <cells>
-                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="dMa-4e-cSg">
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="MemeCollectionCell" id="dMa-4e-cSg">
                                         <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
@@ -245,7 +300,13 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
-                    <navigationItem key="navigationItem" id="Iiv-1z-hiS"/>
+                    <navigationItem key="navigationItem" id="Iiv-1z-hiS">
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="d0o-2I-RJB">
+                            <connections>
+                                <segue destination="BYZ-38-t0r" kind="presentation" id="JEr-us-3bT"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="memesCollection" destination="c16-bj-yWt" id="sNz-Qn-nW6"/>
                     </connections>
@@ -259,4 +320,7 @@
         <image name="collection" width="30" height="30"/>
         <image name="table" width="30" height="30"/>
     </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="JEr-us-3bT"/>
+    </inferredMetricsTieBreakers>
 </document>

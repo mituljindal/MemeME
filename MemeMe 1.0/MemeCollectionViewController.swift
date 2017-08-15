@@ -11,13 +11,12 @@ import UIKit
 class MemeCollectionViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate {
     
     var memes = [Meme]()
-    @IBOutlet weak var memesCollection: UICollectionView!
     
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
+    override func viewDidLoad() {
+        super.viewDidLoad()
         
         let appDelegate = UIApplication.shared.delegate as! AppDelegate
-        memes = appDelegate.memes
+        self.memes = appDelegate.memes
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {

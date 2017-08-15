@@ -117,6 +117,11 @@ class MemeEditorViewController: UIViewController {
         appDelegate.memes.append(meme)
     }
     
+    @IBAction func done(_ sender: Any) {
+        self.save()
+        dismiss(animated: true, completion: nil)
+    }
+    
     func generateMemedImage() -> UIImage {
         
         configureBars(hidden: true)
