@@ -153,10 +153,10 @@
             </objects>
             <point key="canvasLocation" x="-140" y="679"/>
         </scene>
-        <!--View Controller-->
+        <!--Meme Table View Controller-->
         <scene sceneID="LGm-JX-5W6">
             <objects>
-                <viewController id="o6s-F8-RGM" sceneMemberID="viewController">
+                <viewController id="o6s-F8-RGM" customClass="MemeTableViewController" customModule="MemeMe_1_0" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="vrc-3f-KNz"/>
                         <viewControllerLayoutGuide type="bottom" id="ryc-6E-6sO"/>
@@ -169,11 +169,24 @@
                                 <rect key="frame" x="0.0" y="64" width="375" height="554"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="oho-aJ-17t">
+                                        <rect key="frame" x="0.0" y="28" width="375" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="oho-aJ-17t" id="Mv6-bW-iD9">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
                             </tableView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" id="WNI-Pb-ZEi"/>
+                    <connections>
+                        <outlet property="memesTable" destination="uOq-2H-xUj" id="UzX-2h-WyM"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Qhy-BF-3aC" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -196,10 +209,10 @@
             </objects>
             <point key="canvasLocation" x="-140" y="1397"/>
         </scene>
-        <!--View Controller-->
+        <!--Meme Collection View Controller-->
         <scene sceneID="Kvh-Ra-XAn">
             <objects>
-                <viewController id="T0g-eb-D7B" sceneMemberID="viewController">
+                <viewController id="T0g-eb-D7B" customClass="MemeCollectionViewController" customModule="MemeMe_1_0" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="Yjm-RL-NW1"/>
                         <viewControllerLayoutGuide type="bottom" id="gHn-2C-4kO"/>
@@ -212,7 +225,7 @@
                                 <rect key="frame" x="0.0" y="64" width="375" height="554"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="yhu-5R-Nen">
+                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="CCM-sE-4ev">
                                     <size key="itemSize" width="50" height="50"/>
                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
                                     <size key="footerReferenceSize" width="0.0" height="0.0"/>
@@ -233,6 +246,9 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" id="Iiv-1z-hiS"/>
+                    <connections>
+                        <outlet property="memesCollection" destination="c16-bj-yWt" id="sNz-Qn-nW6"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="oxp-bT-BmQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

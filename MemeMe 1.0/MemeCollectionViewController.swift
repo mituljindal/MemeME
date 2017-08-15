@@ -11,6 +11,7 @@ import UIKit
 class MemeCollectionViewController: UIViewController {
     
     var memes = [Meme]()
+    @IBOutlet weak var memesCollection: UICollectionView!
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
@@ -18,6 +19,5 @@ class MemeCollectionViewController: UIViewController {
         let appDelegate = UIApplication.shared.delegate as! AppDelegate
         memes = appDelegate.memes
     }
-    
-    
+
 }
