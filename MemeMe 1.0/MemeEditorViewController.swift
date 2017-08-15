@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class MemeEditorViewController: UIViewController {
 
     @IBOutlet weak var imagePickerView: UIImageView!
     @IBOutlet weak var cameraButton: UIBarButtonItem!
@@ -107,6 +107,16 @@ class ViewController: UIViewController {
         toolbar.isHidden = hidden
     }
     
+    func save() {
+        // Create the meme
+        let meme = Meme(topString: topTextField.text!, bottomString: bottomTextField.text!, originalImage: imagePickerView.image!, finalMeme: generateMemedImage())
+        
+        // Add it to the memes array in the Application Delegate
+        let object = UIApplication.shared.delegate
+        let appDelegate = object as! AppDelegate
+        appDelegate.memes.append(meme)
+    }
+    
     func generateMemedImage() -> UIImage {
         
         configureBars(hidden: true)
@@ -150,7 +160,7 @@ class ViewController: UIViewController {
     }
 }
 
-extension ViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+extension MemeEditorViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     
     func pickImage (sourceType: UIImagePickerControllerSourceType) {
         
