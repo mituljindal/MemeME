@@ -216,6 +216,22 @@
             </objects>
             <point key="canvasLocation" x="776.79999999999995" y="678.71064467766121"/>
         </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="xIW-8P-SOf">
+            <objects>
+                <navigationController id="1VV-Ds-jZr" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="QdR-dM-CGa">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="QJU-t5-cKS" kind="relationship" relationship="rootViewController" id="2Ee-St-OKs"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="so3-Ly-50k" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1679" y="1213"/>
+        </scene>
         <!--Meme Detail View Controller-->
         <scene sceneID="PFY-Um-ej5">
             <objects>
@@ -240,14 +256,20 @@
                             <constraint firstAttribute="trailing" secondItem="F26-jV-pNz" secondAttribute="trailing" id="jZY-TF-lAz"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="M1x-Q2-ld1"/>
+                    <navigationItem key="navigationItem" id="M1x-Q2-ld1">
+                        <barButtonItem key="rightBarButtonItem" systemItem="edit" id="i9g-dY-LK7">
+                            <connections>
+                                <action selector="edit:" destination="QJU-t5-cKS" id="j0I-KH-YKR"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="imageView" destination="F26-jV-pNz" id="579-Os-uXj"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="kY9-IW-HM0" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1750" y="1102"/>
+            <point key="canvasLocation" x="2632.8000000000002" y="1210.344827586207"/>
         </scene>
         <!--Grid-->
         <scene sceneID="tzh-0j-fhY">
@@ -283,39 +305,40 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="CCM-sE-4ev">
-                                    <size key="itemSize" width="80" height="92"/>
+                                    <size key="itemSize" width="100" height="103"/>
                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
                                     <size key="footerReferenceSize" width="0.0" height="0.0"/>
                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 </collectionViewFlowLayout>
                                 <cells>
                                     <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="MemeCollectionCell" id="dMa-4e-cSg" customClass="MemeCollectionViewCell" customModule="MemeMe_1_0" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="0.0" width="80" height="92"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="100" height="100"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                                            <rect key="frame" x="0.0" y="0.0" width="80" height="92"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="100" height="100"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="nhJ-jn-yWR">
+                                                    <rect key="frame" x="26" y="27" width="48" height="45"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="h6N-8x-2wb">
-                                                    <rect key="frame" x="111" y="12" width="42" height="21"/>
+                                                    <rect key="frame" x="29" y="5" width="42" height="21"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TA6-Ly-Oup">
-                                                    <rect key="frame" x="111" y="204" width="42" height="21"/>
+                                                    <rect key="frame" x="29" y="80" width="42" height="21"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="nhJ-jn-yWR">
-                                                    <rect key="frame" x="12" y="64" width="240" height="128"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                </imageView>
                                             </subviews>
                                         </view>
+                                        <size key="customSize" width="100" height="100"/>
                                         <connections>
                                             <outlet property="bottomLabel" destination="TA6-Ly-Oup" id="045-qd-0uI"/>
                                             <outlet property="memeImage" destination="nhJ-jn-yWR" id="YSf-YL-esO"/>

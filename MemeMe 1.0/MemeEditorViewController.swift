@@ -18,9 +18,11 @@ class MemeEditorViewController: UIViewController {
     @IBOutlet weak var toolbar: UIToolbar!
     @IBOutlet weak var navbar: UINavigationBar!
     @IBOutlet weak var photoButton: UIBarButtonItem!
+    var topString: String!
+    var bottomString: String!
+    var originalImage: UIImage!
     
     let textFieldDelegate = TextFieldDelegate()
-    // let space = UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: nil, action: nil)
     
     let memeTextAttributes: [String:Any] = [
         NSStrokeWidthAttributeName: -3.0,
@@ -40,9 +42,6 @@ class MemeEditorViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
-        setTextFieldProperties(textField: topTextField, text: "TOP")
-        setTextFieldProperties(textField: bottomTextField, text: "BOTTOM")
-        cameraButton.isEnabled = UIImagePickerController.isSourceTypeAvailable(.camera)
         subscribeToKeyboardNotifications()
     }
     
@@ -55,7 +54,16 @@ class MemeEditorViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        setTextFieldProperties(textField: topTextField, text: "TOP")
+        setTextFieldProperties(textField: bottomTextField, text: "BOTTOM")
         shareButton.isEnabled = false
+        cameraButton.isEnabled = UIImagePickerController.isSourceTypeAvailable(.camera)
+        
+        if let _ = topString {
+            topTextField.text = self.topString
+            bottomTextField.text = self.bottomString
+            imagePickerView.image = self.originalImage
+        }
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
@@ -118,7 +126,9 @@ class MemeEditorViewController: UIViewController {
     }
     
     @IBAction func done(_ sender: Any) {
-        self.save()
+        if let _ = imagePickerView.image {
+            self.save()
+        }
         dismiss(animated: true, completion: nil)
     }
     
