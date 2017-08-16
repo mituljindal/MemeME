@@ -50,7 +50,7 @@
 		AC02D0FE1F29D14F0079FACF = {
 			isa = PBXGroup;
 			children = (
-				AC02D1091F29D14F0079FACF /* MemeMe 1.0 */,
+				AC02D1091F29D14F0079FACF /* MemeMe */,
 				AC02D1081F29D14F0079FACF /* Products */,
 			);
 			sourceTree = "<group>";
@@ -63,7 +63,7 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
-		AC02D1091F29D14F0079FACF /* MemeMe 1.0 */ = {
+		AC02D1091F29D14F0079FACF /* MemeMe */ = {
 			isa = PBXGroup;
 			children = (
 				AC02D10A1F29D14F0079FACF /* AppDelegate.swift */,
@@ -79,6 +79,7 @@
 				AC02D1131F29D14F0079FACF /* LaunchScreen.storyboard */,
 				AC02D1161F29D14F0079FACF /* Info.plist */,
 			);
+			name = MemeMe;
 			path = "MemeMe 1.0";
 			sourceTree = "<group>";
 		};
