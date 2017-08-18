@@ -169,16 +169,18 @@ class MemeEditorViewController: UIViewController {
         self.present(controller, animated: true, completion: nil)
     }
     
+    func presentAlert(title: String, error: String) {
+        let ac = UIAlertController(title: title, message: error, preferredStyle: .alert)
+        ac.addAction(UIAlertAction(title: "OK", style: .default))
+        present(ac, animated: true)
+    }
+    
     func image(_ image: UIImage, didFinishSavingWithError error: Error?, contextInfo: UnsafeRawPointer) {
         if let error = error {
             // we got back an error!
-            let ac = UIAlertController(title: "Save error", message: error.localizedDescription, preferredStyle: .alert)
-            ac.addAction(UIAlertAction(title: "OK", style: .default))
-            present(ac, animated: true)
+            presentAlert(title: "Save error", error: error.localizedDescription)
         } else {
-            let ac = UIAlertController(title: "Saved!", message: "Your altered image has been saved to your photos.", preferredStyle: .alert)
-            ac.addAction(UIAlertAction(title: "OK", style: .default))
-            present(ac, animated: true)
+            presentAlert(title: "Saved!", error: "Your altered image has been saved to your photos.")
         }
     }
 }

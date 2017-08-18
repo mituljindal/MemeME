@@ -45,6 +45,7 @@ class MemeCollectionViewController: UIViewController, UICollectionViewDataSource
         let meme = memes[(indexPath as NSIndexPath).row]
         
         cell.memeImage?.image = meme.finalMeme
+        cell.memeImage.contentMode = .scaleAspectFit
         
         return cell
     }
