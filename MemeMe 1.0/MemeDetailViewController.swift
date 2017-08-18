@@ -17,6 +17,8 @@ class MemeDetailViewController: UIViewController {
         super.viewDidLoad()
 
         imageView.image = meme.finalMeme
+        imageView.contentMode = .scaleAspectFit
+        navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .edit, target: self, action: #selector(edit(_:)))
     }
     
     @IBAction func edit(_ sender: Any) {

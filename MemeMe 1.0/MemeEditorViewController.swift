@@ -56,13 +56,21 @@ class MemeEditorViewController: UIViewController {
         
         setTextFieldProperties(textField: topTextField, text: "TOP")
         setTextFieldProperties(textField: bottomTextField, text: "BOTTOM")
-        shareButton.isEnabled = false
         cameraButton.isEnabled = UIImagePickerController.isSourceTypeAvailable(.camera)
         
         if let _ = topString {
             topTextField.text = self.topString
             bottomTextField.text = self.bottomString
             imagePickerView.image = self.originalImage
+            imagePickerView.contentMode = .scaleAspectFit
+        }
+        
+        if imagePickerView.image == nil {
+            shareButton.isEnabled = false
+            print("share button disabled")
+        } else {
+            shareButton.isEnabled = true
+            print("share button enabled")
         }
     }
     

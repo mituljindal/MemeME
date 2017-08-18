@@ -11,11 +11,19 @@ import UIKit
 class MemeCollectionViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate {
     
     var memes = [Meme]()
+    @IBOutlet weak var flowLayout: UICollectionViewFlowLayout!
+    
     @IBOutlet weak var memesCollectionView: UICollectionView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        let space:CGFloat = 3.0
+        let dimension = (view.frame.size.width - (2 * space)) / 3.0
+        
+        flowLayout.minimumInteritemSpacing = space
+        flowLayout.minimumLineSpacing = space
+        flowLayout.itemSize = CGSize(width: dimension, height: dimension)
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -36,13 +44,8 @@ class MemeCollectionViewController: UIViewController, UICollectionViewDataSource
         
         let meme = memes[(indexPath as NSIndexPath).row]
         
-        cell.topLabel?.text = meme.topString
-        cell.bottomLabel?.text = meme.bottomString
-        cell.memeImage?.image = meme.originalImage
+        cell.memeImage?.image = meme.finalMeme
         
-        print("cell.topLabel.text: \(cell.topLabel.text!)")
-        print("cell.bottomLabel.text: \(cell.bottomLabel.text!)")
-        print("cell.memeImage: \(cell.memeImage)")
         return cell
     }
     

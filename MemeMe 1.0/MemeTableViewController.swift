@@ -36,6 +36,7 @@ class MemeTableViewController: UIViewController, UITableViewDelegate, UITableVie
         
         cell.textLabel?.text = meme.topString
         cell.imageView?.image = meme.originalImage
+        cell.detailTextLabel?.text = meme.bottomString
         
         return cell
     }
